@@ -5,7 +5,7 @@ services: #Defines the different services (containers) your app will run.
   web: #This is the first service — your Flask app container.
     build: . #Tells Docker to build an image for this service from the Dockerfile in the current directory (.).
     expose:
-    - "5002" #Maps port 5002 on your computer → port 5002 inside the container.
+  - "5002"  # Exposes port 5002 inside the container (not published to the host machine).
     depends_on:
     - redis #Means the web service will only start after the redis service has started.
 
