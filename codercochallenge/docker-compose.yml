@@ -1,0 +1,32 @@
+version: "3.8" #This is the Docker Compose file format version.
+
+services: #Defines the different services (containers) your app will run.
+
+  web: #This is the first service — your Flask app container.
+    build: . #Tells Docker to build an image for this service from the Dockerfile in the current directory (.).
+    expose:
+    - "5002" #Maps port 5002 on your computer → port 5002 inside the container.
+    depends_on:
+    - redis #Means the web service will only start after the redis service has started.
+
+  redis:  #This is the second service — a Redis database container.
+    image: "redis:latest" #nstead of building from a Dockerfile, this pulls the latest official Redis image from Docker Hub.
+    ports:
+    - "6379:6379" #Maps port 6379 on your computer → port 6379 in the container.
+    volumes: #Mount the named volume called redis-data inside the container at path /data.
+    - redis-data:/data #So the container’s /data folder will be persisted on your machine using the redis-data volume.
+    environment:
+    - REDIS_HOST=redis
+    - REDIS_PORT=6379
+    
+  nginx:
+    image: nginx:latest
+    ports:
+    - "5002:5002"
+    volumes:
+    - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+    - web
+
+volumes: #You are declaring/defining a named volume called redis-data. make sure its not in the same section
+    redis-data: #Docker Compose will create/manage this volume for you.
