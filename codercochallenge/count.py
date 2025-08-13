@@ -1,20 +1,55 @@
 import os
-from flask import Flask #Imports the Flask class from the flask library.
-import redis  #Imports the redis Python client so we can connect to a Redis database.
+import random
+from flask import Flask, render_template, jsonify
+import redis
 
-app = Flask(__name__) #Creates a Flask application object called app.
-redis_host = os.getenv('REDIS_HOST', 'redis') #Gets the Redis host address from the environment variable REDIS_HOST, or uses 'redis' if that variable isn’t set.
-redis_port = int(os.getenv('REDIS_PORT', 6379)) #Gets the Redis port number from the environment variable REDIS_PORT, or uses 6379 if that variable isn’t set, converting it to an integer
-r = redis.Redis(host='redis', port=6379) #Creates a Redis connection object called r.
+app = Flask(__name__)
 
-@app.route('/') #means when someone visits the root URL (/), run the welcome() function.
-def welcome():
-    return 'Welcome to the CoderCo Challenge'
+# Redis connection details
+redis_host = os.getenv('REDIS_HOST', 'redis')
+redis_port = int(os.getenv('REDIS_PORT', 6379))
+r = redis.Redis(host=redis_host, port=redis_port, decode_responses=True)
 
-@app.route('/count') #means when someone visits /count, run the count() function.
+# Charity quotes list
+charity_quotes = [
+    "No one has ever become poor by giving. – Anne Frank",
+    "Charity sees the need, not the cause. – German Proverb",
+    "The best way to find yourself is to lose yourself in the service of others. – Mahatma Gandhi",
+    "We make a living by what we get, but we make a life by what we give. – Winston Churchill",
+    "Service to others is the rent you pay for your room here on earth. – Muhammad Ali",
+    "Give, but give until it hurts. – Mother Teresa"
+]
+
+@app.route('/')
+def home():
+    """
+    Render the home page about water issues in Kenya.
+    """
+    # Facts about water issues
+    facts = {
+        "drought_areas": "Over 4 million people in Kenya face food and water shortages due to recurring droughts.",
+        "rainfall_decline": "Average annual rainfall has dropped by nearly 20% in the last three decades.",
+        "population_affected": "About 40% of Kenya’s population lack access to clean and safe water.",
+        "climate_change": "Climate change has intensified dry seasons and reduced water sources."
+    }
+    return render_template('home.html', facts=facts)
+
+@app.route('/count')
 def count():
-    count= r.incr('visits')
-    return f'This site has been visted {count} times'
+    """
+    Increment visitor count and display a random charity quote.
+    """
+    count = r.incr('visits')
+    quote = random.choice(charity_quotes)
+    return render_template('count.html', count=count, quote=quote)
 
-if __name__ == '__main__':  # The if statement checks: “Am I being run directly?”
-        app.run(host='0.0.0.0', port = 5002) #If yes, it starts the Flask development server on port 5002.
+@app.route('/count/api')
+def count_api():
+    """
+    API endpoint for current visitor count.
+    """
+    count = r.get('visits') or 0
+    return jsonify({'count': int(count)})
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5002, debug=True)

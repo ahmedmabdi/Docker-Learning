@@ -1,6 +1,10 @@
-FROM python:3.8-slim
+FROM python:3.9-slim
+
 WORKDIR /app
-COPY . /app
-RUN pip install flask redis
-EXPOSE 5002
+
+COPY requirements.txt requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+COPY . .
+
 CMD ["python", "count.py"]

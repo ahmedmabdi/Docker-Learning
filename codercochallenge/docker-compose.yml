@@ -1,32 +1,32 @@
-version: "3.8" #This is the Docker Compose file format version.
+version: "3.8" # This is the Docker Compose file format version.
 
-services: #Defines the different services (containers) your app will run.
+services: # Defines the different services (containers) your app will run.
 
-  web: #This is the first service — your Flask app container.
-    build: . #Tells Docker to build an image for this service from the Dockerfile in the current directory (.).
+  web: # This is the first service — your Flask app container.
+    build: . # Build image from Dockerfile in current directory
     expose:
-  - "5002"  # Exposes port 5002 inside the container (not published to the host machine).
+      - "5002"  # Exposes port 5002 inside the container (not published to host)
     depends_on:
-    - redis #Means the web service will only start after the redis service has started.
+      - redis  # Start web only after redis is ready
 
-  redis:  #This is the second service — a Redis database container.
-    image: "redis:latest" #nstead of building from a Dockerfile, this pulls the latest official Redis image from Docker Hub.
+  redis: # Redis database container
+    image: "redis:latest" # Pull latest Redis image from Docker Hub
     ports:
-    - "6379:6379" #Maps port 6379 on your computer → port 6379 in the container.
-    volumes: #Mount the named volume called redis-data inside the container at path /data.
-    - redis-data:/data #So the container’s /data folder will be persisted on your machine using the redis-data volume.
+      - "6379:6379" # Maps port 6379 on host → port 6379 in container
+    volumes:
+      - redis-data:/data # Persist /data using named volume redis-data
     environment:
-    - REDIS_HOST=redis
-    - REDIS_PORT=6379
-    
+      - REDIS_HOST=redis
+      - REDIS_PORT=6379
+
   nginx:
     image: nginx:latest
     ports:
-    - "5002:5002"
+      - "5002:5002" # Publish container port 5002 to host port 5002
     volumes:
-    - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx.conf:/etc/nginx/nginx.conf
     depends_on:
-    - web
+      - web
 
-volumes: #You are declaring/defining a named volume called redis-data. make sure its not in the same section
-    redis-data: #Docker Compose will create/manage this volume for you.
+volumes: # Declare named volumes here (not under services)
+  redis-data: # Docker Compose will create/manage this volume for you

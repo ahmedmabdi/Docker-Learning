@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Visitor Count - Travel Blog</title>
+  <style>
+    body {
+      margin: 0; padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #0d3b66;
+      color: #fff;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5em;
+    }
+    #count {
+      font-size: 5rem;
+      font-weight: 700;
+      margin-bottom: 1em;
+      color: #74ebd5;
+    }
+    button {
+      font-size: 1.25rem;
+      padding: 0.75em 2em;
+      background: #74ebd5;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      color: #0d3b66;
+      font-weight: bold;
+      transition: background 0.3s ease;
+    }
+    button:hover {
+      background: #ACB6E5;
+    }
+    a {
+      margin-top: 2em;
+      color: #74ebd5;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <h1>Visitor Count</h1>
+  <div id="count">{{ count }}</div>
+  <button onclick="refreshCount()">Refresh Count</button>
+  <a href="/">← Back to Home</a>
+
+  <script>
+    async function refreshCount() {
+      try {
+        const response = await fetch('/count/api');
+        const data = await response.json();
+        document.getElementById('count').textContent = data.count;
+      } catch (error) {
+        alert('Error refreshing count.');
+      }
+    }
+  </script>
+</body>
+</html>
