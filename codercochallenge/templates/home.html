@@ -9,20 +9,20 @@
 </head>
 <body>
 
-<header>
+<header class="main-header">
     <h1>Water Challenges in Kenya</h1>
     <p>Understanding rainfall, water sources, and the impact on communities</p>
 </header>
 
 <div class="container">
-    <section>
+    <section class="content-section">
         <h2>Rainfall & Water Sources</h2>
         <p>Kenya experiences highly variable rainfall across different regions. The country has two main rainy seasons: the Long Rains (March-May) and Short Rains (October-December). Average rainfall varies significantly from 250 mm/year in arid areas to over 2,000 mm/year in highland regions.</p>
         <p>Main water sources include rivers, lakes, dams, and underground aquifers. However, these are unevenly distributed, often leaving arid and semi-arid regions with scarce access.</p>
-        <img src="{{ url_for('static', filename='images/lake_levels.png') }}" alt="Lake Water Levels in Kenya">
+        <img src="{{ url_for('static', filename='images/lake_levels.png') }}" alt="Lake Water Levels in Kenya" class="image">
     </section>
 
-    <section>
+    <section class="content-section">
         <h2>Issues Caused by Rainfall Variability</h2>
         <p>Irregular rainfall patterns lead to:</p>
         <ul>
@@ -32,17 +32,17 @@
             <li>Contamination of water sources, increasing the risk of waterborne diseases.</li>
         </ul>
         <div class="chart">
-            <img src="{{ url_for('static', filename='images/drought_regions.png') }}" alt="Drought Regions of Kenya">
+            <img src="{{ url_for('static', filename='images/drought_regions.png') }}" alt="Drought Regions of Kenya" class="image">
         </div>
     </section>
 
-    <section>
+    <section class="cta-section">
         <p>Learn more about how you can support water sustainability in Kenya and make a positive impact in affected communities.</p>
         <p><a href="{{ url_for('count') }}" class="btn">Check Visitors</a></p>
     </section>
 </div>
 
-<footer>
+<footer class="main-footer">
     <p>© 2025 Water Sustainability Project</p>
 </footer>
 
