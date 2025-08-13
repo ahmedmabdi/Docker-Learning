@@ -66,6 +66,17 @@ Here are the key skills and concepts I mastered:
 
 ---
 
+## Assignment Details
+**Module**: Docker Learning — CodeCode  
+**Task**: Building a Multi-Container Application
+**Challenge Name**: CoderCo Containers Challenge 
+**Key Requirements**:
+Create a multi-container application that consists of a simple Python Flask web application and a Redis database. The Flask application should use Redis to store and retrieve data.
+**Bonus**:
+-Persistent Storage for Redis: Configure Redis to use a volume to persist its data.
+-Environment Variables: Modify the Flask application to read Redis connection details from environment variables and update the docker-compose.yml accordingly.
+---
+
 ## The CodeCode Challenge — **Water Issues Kenya** Project
 
 The final challenge in the Docker module was to create a **Dockerised web application** with persistent functionality.  
@@ -120,18 +131,6 @@ I developed **Water Issues Kenya** — a visitor counter web app with educationa
 
 ---
 
-## Assignment Details
-**Module**: Docker Learning — CodeCode  
-**Task**: Build and deploy a Dockerised Python web app with persistent data storage.  
-**Challenge Name**: *Water Issues Kenya — Visitor Count Web App*  
-**Key Requirements**:
-- Use Docker and Docker Compose.
-- Implement persistent data storage with volumes.
-- Serve static files (images, CSS, JS).
-- Include interactive web elements.
-- Provide meaningful, real-world educational content.
-
----
 
 **Outcome**:  
 Successfully implemented a fully functioning, Dockerised visitor counter application with educational content, meeting all requirements of the CodeCode challenge.
