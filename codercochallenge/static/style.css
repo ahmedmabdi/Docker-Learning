@@ -1,0 +1,156 @@
+/* General Styles */
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background-color: #005f73;
+    color: #fff;
+    padding: 40px 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5em;
+}
+
+header p {
+    font-size: 1.2em;
+    margin-top: 10px;
+}
+
+/* Section Titles */
+h2 {
+    color: #0a9396;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-size: 2em;
+    border-bottom: 2px solid #94d2bd;
+    padding-bottom: 5px;
+}
+
+/* Paragraphs */
+p {
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+
+/* Images */
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+/* Charts/Graphs */
+.chart {
+    max-width: 90%;
+    margin: 20px auto;
+    display: block;
+}
+
+/* Visitor Count Page */
+.visitor-count {
+    text-align: center;
+    margin-top: 100px;
+}
+
+.visitor-count h2 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.visitor-count p {
+    font-size: 1.2em;
+}
+
+/* Buttons */
+button {
+    background-color: #0a9396;
+    color: #fff;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1em;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #005f73;
+}
+
+/* Footer */
+footer {
+    background-color: #001219;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 2em;
+    }
+    h2 {
+        font-size: 1.5em;
+    }
+}
+/* Fancy button */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.5rem;
+    font-size: 1.2rem;
+    color: #fff;
+    background-color: #0d6efd;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}/* Count page specific */
+.count-container {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    max-width: 500px;
+    margin: 2rem auto;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    text-align: center;
+}
+
+.count-container .count {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #0d6efd;
+}
+
+.count-container blockquote {
+    font-style: italic;
+    font-size: 1.2rem;
+    color: #555;
+    margin: 1.5rem 0 0 0;
+}
+
+.count-container a.btn {
+    margin-top: 1.5rem;
+}

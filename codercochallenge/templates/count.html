@@ -1,73 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Visitor Count - Travel Blog</title>
-  <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: #0d3b66;
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5em;
-    }
-    #count {
-      font-size: 5rem;
-      font-weight: 700;
-      margin-bottom: 1em;
-      color: #74ebd5;
-    }
-    button {
-      font-size: 1.25rem;
-      padding: 0.75em 2em;
-      background: #74ebd5;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      color: #0d3b66;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    button:hover {
-      background: #ACB6E5;
-    }
-    a {
-      margin-top: 2em;
-      color: #74ebd5;
-      text-decoration: none;
-      font-weight: 600;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visitor Count & Charity Quotes</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Visitor Count</h1>
-  <div id="count">{{ count }}</div>
-  <button onclick="refreshCount()">Refresh Count</button>
-  <a href="/">← Back to Home</a>
 
-  <script>
-    async function refreshCount() {
-      try {
-        const response = await fetch('/count/api');
-        const data = await response.json();
-        document.getElementById('count').textContent = data.count;
-      } catch (error) {
-        alert('Error refreshing count.');
-      }
-    }
-  </script>
+<div class="count-container">
+    <h1>Visitor Count</h1>
+    <div class="count">{{ count }}</div>
+
+    <h2>Quote on Charity</h2>
+    <blockquote id="quote">{{ quote }}</blockquote>
+
+    <p><a href="{{ url_for('home') }}" class="btn">Back to Home</a></p>
+</div>
+
+<script>
+    const quotes = [
+        "The best way to find yourself is to lose yourself in the service of others.",
+        "Charity begins at home, but should not end there.",
+        "No one has ever become poor by giving.",
+        "We make a living by what we get. We make a life by what we give.",
+        "Do not wait for a perfect moment, take the moment and make it perfect by helping others."
+    ];
+
+    // Change quote on page refresh
+    document.getElementById('quote').textContent = quotes[Math.floor(Math.random() * quotes.length)];
+</script>
+
 </body>
 </html>

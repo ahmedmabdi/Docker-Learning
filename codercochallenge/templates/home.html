@@ -1,50 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Travel Blog - Welcome</title>
-  <style>
-    body {
-      margin: 0; padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(135deg, #74ebd5, #ACB6E5);
-      color: #333;
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      flex-direction: column;
-      text-align: center;
-    }
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.2em;
-      color: #0d3b66;
-    }
-    p {
-      font-size: 1.25rem;
-      max-width: 600px;
-      margin-bottom: 1.5em;
-      color: #144552;
-    }
-    a.button {
-      background: #0d3b66;
-      color: white;
-      padding: 0.8em 2em;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    a.button:hover {
-      background: #144552;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Water Challenges in Kenya</title>
+    <!-- Link to external stylesheet -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-  <h1>Welcome to My Travel Blog!</h1>
-  <p>Explore stories, tips, and adventures from around the globe — and track how many visitors are joining the journey.</p>
-  <a href="/count" class="button">Check Visitor Count</a>
+
+<header>
+    <h1>Water Challenges in Kenya</h1>
+    <p>Understanding rainfall, water sources, and the impact on communities</p>
+</header>
+
+<div class="container">
+    <section>
+        <h2>Rainfall & Water Sources</h2>
+        <p>Kenya experiences highly variable rainfall across different regions. The country has two main rainy seasons: the Long Rains (March-May) and Short Rains (October-December). Average rainfall varies significantly from 250 mm/year in arid areas to over 2,000 mm/year in highland regions.</p>
+        <p>Main water sources include rivers, lakes, dams, and underground aquifers. However, these are unevenly distributed, often leaving arid and semi-arid regions with scarce access.</p>
+        <img src="{{ url_for('static', filename='images/lake_levels.png') }}" alt="Lake Water Levels in Kenya">
+    </section>
+
+    <section>
+        <h2>Issues Caused by Rainfall Variability</h2>
+        <p>Irregular rainfall patterns lead to:</p>
+        <ul>
+            <li>Droughts affecting over 3 million people annually in northern and eastern Kenya.</li>
+            <li>Flooding during heavy rains, causing displacement and destruction of infrastructure.</li>
+            <li>Reduced agricultural productivity, threatening food security.</li>
+            <li>Contamination of water sources, increasing the risk of waterborne diseases.</li>
+        </ul>
+        <div class="chart">
+            <img src="{{ url_for('static', filename='images/drought_regions.png') }}" alt="Drought Regions of Kenya">
+        </div>
+    </section>
+
+    <section>
+        <p>Learn more about how you can support water sustainability in Kenya and make a positive impact in affected communities.</p>
+        <p><a href="{{ url_for('count') }}" class="btn">Check Visitors</a></p>
+    </section>
+</div>
+
+<footer>
+    <p>© 2025 Water Sustainability Project</p>
+</footer>
+
 </body>
 </html>
