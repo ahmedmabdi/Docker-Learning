@@ -1,8 +1,8 @@
-# Docker Learning — CodeCode Module
+# Docker— CoderCo Module
 
 ## Overview of Skills Learned
 
-During my Docker learning journey at **CodeCode**, I gained both theoretical understanding and hands-on skills in containerisation, application deployment, and DevOps practices.  
+During my Docker learning journey at **CoderCo**, I gained both theoretical understanding and hands-on skills in containerisation, application deployment, and DevOps practices.  
 Here are the key skills and concepts I mastered:
 
 ### 1. Docker Fundamentals
@@ -32,12 +32,14 @@ Here are the key skills and concepts I mastered:
 ### 4. Docker Compose & YAML Configuration
 - Understanding the **`docker-compose.yml`** structure.
 - Defining multi-container applications.
-- Managing service dependencies with `depends_on`.
 - Mapping ports for public access.
 - Linking services together using Docker networks.
+- Mastering docker compose commands:
+  - `docker compose up`, `docker compose down`
+  - `docker compose up --build`, `docker compose down -v`
 
 ### 5. Volumes
-- Understanding **named volumes** and **bind mounts**.
+- Understanding **named volumes**.
 - Using volumes to persist application data.
 - Practical use cases:
   - **Redis volume** for data persistence.
@@ -45,7 +47,6 @@ Here are the key skills and concepts I mastered:
 - Separating application logic from storage.
 
 ### 6. Environment Variables
-- Storing secrets and configuration separately from code.
 - Using `.env` files in conjunction with Docker Compose.
 - Understanding environment-specific configuration for dev, test, and production.
 
@@ -59,22 +60,20 @@ Here are the key skills and concepts I mastered:
 - Using **VS Code** as the main development environment.
 - Structuring projects for maintainability:
   - `app/` for source code.
-  - `static/` for images, CSS, and JS.
-  - `templates/` for HTML pages.
   - `Dockerfile` and `docker-compose.yml` in root.
 - Using Git for version control.
 
 ---
 
 ## Assignment Details
-**Module**: Docker Learning — CodeCode  
-**Task**: Building a Multi-Container Application
-**Challenge Name**: CoderCo Containers Challenge 
-**Key Requirements**:
-Create a multi-container application that consists of a simple Python Flask web application and a Redis database. The Flask application should use Redis to store and retrieve data.
+- **Module**: Docker — CoderCo 
+- **Task**: Building a Multi-Container Application
+- **Challenge Name**: CoderCo Containers Challenge 
+- **Key Requirements**:
+  - Create a multi-container application that consists of a simple Python Flask web application and a Redis database. The Flask      application should use Redis to store and retrieve data.
 **Bonus**:
--Persistent Storage for Redis: Configure Redis to use a volume to persist its data.
--Environment Variables: Modify the Flask application to read Redis connection details from environment variables and update the docker-compose.yml accordingly.
+  - Persistent Storage for Redis: Configure Redis to use a volume to persist its data.
+  - Environment Variables: Modify the Flask application to read Redis connection details from environment variables and update the docker-compose.yml accordingly.
 ---
 
 ## The CodeCode Challenge — **Water Issues Kenya** Project
@@ -98,6 +97,10 @@ I developed **Water Issues Kenya** — a visitor counter web app with educationa
   - Educational images of affected areas in Kenya.
   - Graphs and diagrams about rainfall data.
   - Custom **CSS styling** for a professional look.
+  - Created structured projects for maintainability on VS Code:
+      - `app/` for source code.
+      - `static/` for images, CSS, and JS.
+      - `templates/` for HTML pages.
 
 - **Backend**:
   - Flask Python application serving HTML templates.
