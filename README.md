@@ -138,13 +138,13 @@ I developed **Water Issues Kenya** — a visitor counter web app with educationa
 ## Screenshots
 
 ### 1. Home Page
-![Home Page](screenshots/home_page.png)
+![Home Page](codercochallenge/screenshots/home_page.png)
 
 ### 2. Visitor Button
-![Visitor Button](screenshots/visitor_button.png)
+![Visitor Button](codercochallenge/screenshots/visitor_button.png)
 
 ### 3. Count Page
-![Count Page](screenshots/count_page.png)
+![Count Page](codercochallenge/screenshots/count_page.png)
 
 ---
 
