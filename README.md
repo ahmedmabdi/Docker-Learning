@@ -99,7 +99,6 @@ I developed **Water Issues Kenya** — a visitor counter web app with educationa
   - Graphs and diagrams about rainfall data.
   - Custom **CSS styling** for a professional look.
   - Created structured projects for maintainability on VS Code:
-      - `app/` for source code.
       - `static/` for images, CSS, and JS.
       - `templates/` for HTML pages.
 
