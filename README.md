@@ -70,10 +70,11 @@ Here are the key skills and concepts I mastered:
 - **Task**: Building a Multi-Container Application
 - **Challenge Name**: CoderCo Containers Challenge 
 - **Key Requirements**:
-  - Create a multi-container application that consists of a simple Python Flask web application and a Redis database. The Flask      application should use Redis to store and retrieve data.
+  - Create a multi-container application that consists of a simple Python Flask web application and a Redis database. The Flask application should use Redis to store and retrieve data.  
 **Bonus**:
   - Persistent Storage for Redis: Configure Redis to use a volume to persist its data.
   - Environment Variables: Modify the Flask application to read Redis connection details from environment variables and update the docker-compose.yml accordingly.
+
 ---
 
 ## The CodeCode Challenge — **Water Issues Kenya** Project
@@ -134,6 +135,18 @@ I developed **Water Issues Kenya** — a visitor counter web app with educationa
 
 ---
 
+## Screenshots
+
+### 1. Home Page
+![Home Page](screenshots/home_page.png)
+
+### 2. Visitor Button
+![Visitor Button](screenshots/visitor_button.png)
+
+### 3. Count Page
+![Count Page](screenshots/count_page.png)
+
+---
 
 **Outcome**:  
 Successfully implemented a fully functioning, Dockerised visitor counter application with educational content, meeting all requirements of the CodeCode challenge.
